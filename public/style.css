@@ -1,7 +1,56 @@
-code {
-    background-color: whitesmoke;
+:root {
+  --smoke: #f5f2f0;
+  font-size: 1.2em;
 }
 
-section, header {
-    margin: 50px;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin: 1.2rem auto;
+  font-size: 2.3rem;
+  width: 90%;
+}
+
+ul {
+  display: inline-block;
+  list-style-type: none;
+  text-align: left;
+}
+
+.usage {
+  width: 90%;
+  margin: 0 auto;
+}
+
+code {
+  background-color: var(--smoke);
+}
+
+.bigger {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+input {
+  height: 1.5rem;
+  box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
+  line-height: 1.5rem;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+#result, .code {
+  width: 85%;
+  margin: 0 auto 0.5rem;
 }

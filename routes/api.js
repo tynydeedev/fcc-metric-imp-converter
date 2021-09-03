@@ -12,7 +12,6 @@ module.exports = function (app) {
   });
 
   app.get('/api/convert', (req, res) => {
-    console.log(req.query);
     const query = req.query;
     // If no query
     if(Object.keys(query).length === 0) return res.json({msg: 'please use query "input" to use conversion'});

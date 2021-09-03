@@ -3,36 +3,40 @@
   <head>
     <title>Metric/Imperial Converter</title>
     <meta name="description" content="An example of the Free Code Camp Metric/Imperial Converter Project">
-    <link id="favicon" rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./public/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1>Metric/Imperial Converter</h1>
     </header>
     <hr>
-    <section>
-      <h3>Example usage</h3>
-      <code>/api/convert?input=4gal</code><br>
-      <code>/api/convert?input=1/2km</code><br>
-      <code>/api/convert?input=5.4/3lbs</code><br>
-      <code>/api/convert?input=kg</code><br>
-      <h3>Example return</h3>
+    <section id="usage" class="usage">
+      <p class="bigger">How to use:</p>
+      <p>You can use our API or our below form to convert.</p>
+      <p>You can convert <code>miles(mi) - kilometers(km)</code>, <code>gallons(gal) - liters(L)</code> and <code>pounds(lbs) - kilograms(kg)</code>.</p>
+      <p class="bigger">Example usage using API:</p>
+      <ul>
+        <li><code>/api/convert?input=4gal</code></li>
+        <li><code>/api/convert?input=1/2km</code></li>
+        <li><code>/api/convert?input=5.4/3lbs</code></li>
+        <li><code>/api/convert?input=kg</code></li>
+      </ul>
+      <p class="bigger">Example return</p>
       <code>{ initNum: 3.1, initUnit: 'mi', returnNum: 4.98895, returnUnit: 'km', string: '3.1 miles converts to 4.98895 kilometers' }</code>
     </section>
-    <hr>
-    <section>
+    <section id="front-end-using" class="using">
       <div id='testui' >
-        <h3 style="text-align: left">Front-End</h3>
+        <p class="bigger">Direct Usage</p>
         <form id="convertForm" class="border">
-          <input type="text" id="convertField" name="input" placeholder="3.1mi" style="width: 200px">
+          <input type="text" id="convertField" name="input" placeholder="3.1mi" size="30">
           <input id="convert" type="submit" value='Convert!'>
         </form>
         <p id='result'></p>
-        <code id='jsonResult'></code>
+        <p class="code"><code id='jsonResult'></code></p>
       </div>
     </section>
     <!-- Your web-app is https, so your scripts need to be too -->
