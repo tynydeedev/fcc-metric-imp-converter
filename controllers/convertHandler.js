@@ -3,7 +3,7 @@ function ConvertHandler() {
   this.getNum = function(input) {
     let result;
     // Separate the first number-like from the input
-    let number = input.split(/[a-z]/i).filter(e => e != '')[0];
+    let number = input.split(/[a-z]/i)[0];
     // If there is no number-like input, make it 1
     (!number) ? number = '1' : number;
     // Only allow digit, dot and forward slash
@@ -29,36 +29,66 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-    let result;
-    
-    return result;
+    // List of valid unit
+    const validUnit = ['km', 'mi', 'lbs', 'kg', 'gal', 'l'];
+    // Separate the first number-like from the input
+    const number = input.split(/[a-z]/i)[0];
+    const letter = input.slice(number.length).toLowerCase();
+    // Check if valid Unit
+    if (validUnit.indexOf(letter) === -1) {
+      throw new Error('invalid unit');
+    };    
+    return (letter === 'l') ? 'L' : letter;;
   };
   
   this.getReturnUnit = function(initUnit) {
-    let result;
+    const list = {
+      km: 'mi',
+      mi: 'km',
+      lbs: 'kg',
+      kg: 'lbs',
+      gal: 'L',
+      L: 'gal'
+    }
     
-    return result;
+    return list[initUnit];
   };
 
   this.spellOutUnit = function(unit) {
-    let result;
+    const list = {
+      km: 'kilometers',
+      mi: 'miles',
+      lbs: 'pounds',
+      kg: 'kilograms',
+      gal: 'gallons',
+      L: 'liters'
+    }
     
-    return result;
+    return list[unit];
   };
   
   this.convert = function(initNum, initUnit) {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    let result;
-    
-    return result;
+    switch (initUnit) {
+      case 'km':
+        return Math.round((initNum / miToKm) * 100000) / 100000;
+      case 'mi':
+        return Math.round(initNum * miToKm * 100000) / 100000;
+      case 'kg':
+        return Math.round((initNum / lbsToKg) * 100000) / 100000;
+      case 'lbs':
+        return Math.round(initNum * lbsToKg * 100000) / 100000;
+      case 'L':
+        return Math.round((initNum / galToL) * 100000) / 100000;
+      case 'gal':
+        return Math.round(initNum * galToL * 100000) / 100000;
+    }
   };
   
-  this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    let result;
-    
-    return result;
+  this.getString = function(initNum, initUnit, returnNum, returnUnit) {    
+    return `${initNum} ${initUnit} converts to ${returnNum} ${returnUnit}`;
   };
   
 }
