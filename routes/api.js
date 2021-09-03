@@ -20,13 +20,12 @@ module.exports = function (app) {
     if (!input) return res.json({msg: 'please use query "input" to use conversion'});
     if (Array.isArray(input)) return res.json({msg: 'please use only one input'});
 
-    // Error handler
+    // Error handler if invalid input
     try {
       convertHandler.getNum(input);
       convertHandler.getUnit(input);
     }
     catch(err) {
-      let error = 1;
       if (err.message === 'invalid unit') {
         return res.send('invalid unit');
       }
