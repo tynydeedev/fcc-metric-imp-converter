@@ -54,3 +54,10 @@ input {
   width: 85%;
   margin: 0 auto 0.5rem;
 }
+
+.note {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  bottom: 0;
+  width: 100%;
+}
